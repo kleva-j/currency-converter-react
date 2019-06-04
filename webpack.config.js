@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-bitwise */
 const webpack = require('webpack');
 const path = require('path');
 const dotenv = require('dotenv');
@@ -10,18 +12,17 @@ dotenv.config();
 
 const isProduction = process.env.NODE_ENV !== 'development';
 
-console.log(process.env.NODE_ENV)
-
 const config = {
   entry: {
-    main: './src/index.js'
+    main: './src/index.js',
   },
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].js'
+    filename: '[name].js',
   },
   target: 'web',
+  mode: isProduction ? 'production' : 'development',
   devtool: '#source-map',
   devServer: {
     contentBase: `${__dirname}/dist`,
@@ -55,7 +56,7 @@ const config = {
           'file-loader',
         ],
       },
-    ]
+    ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx', '.css', '.scss'],
@@ -65,19 +66,19 @@ const config = {
       template: './src/index.html',
       filename: './index.html',
     }),
-    isProduction ? 
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-    }) : 
-    new webpack.HotModuleReplacementPlugin()
+    isProduction
+      ? new MiniCssExtractPlugin({
+        filename: '[name].css',
+      })
+      : new webpack.HotModuleReplacementPlugin(),
   ],
-}
+};
 
 isProduction & (config.optimization = {
   minimizer: [
     new TerserPlugin(),
-    new OptimizeCSSAssetsPlugin({})
-  ]
+    new OptimizeCSSAssetsPlugin({}),
+  ],
 });
 
 module.exports = config;
