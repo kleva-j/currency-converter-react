@@ -12,7 +12,7 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.1",
     "styled-components": "^4.2.1",
-    "webpack": "^4.32.2",
+    "webpack": "^4.43.0",
     "webpack-dev-middleware": "^3.7.2",
     "snyk": "^1.323.1"
   },
