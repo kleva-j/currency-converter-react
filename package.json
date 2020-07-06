@@ -14,7 +14,7 @@
     "styled-components": "^4.2.1",
     "webpack": "^4.43.0",
     "webpack-dev-middleware": "^3.7.2",
-    "snyk": "^1.337.0"
+    "snyk": "^1.339.3"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
