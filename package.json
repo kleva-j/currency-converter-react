@@ -14,7 +14,7 @@
     "styled-components": "^4.2.1",
     "webpack": "^5.1.1",
     "webpack-dev-middleware": "^3.7.2",
-    "snyk": "^1.402.0"
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -46,7 +46,7 @@
     "start": "NODE_ENV=production node server/index.js --ignore client",
     "start:dev": "NODE_ENV=development webpack-dev-server --open --mode development --hot",
     "build": "",
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk-protect",
     "prepare": "npm run snyk-protect"
   },
   "repository": {
